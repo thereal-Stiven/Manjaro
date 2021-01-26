@@ -84,8 +84,9 @@ Wie bereits erwaehnt hatte ich am Anfang Probleme beim installieren von PostgreS
 in anspruch nahm, auch beim Deserializieren der Karten hatte ich Probleme bis ich nach kurzem recherchieren
 auf "Newtonsoft.Json" gestossen bin. Damit konnte ich einfach  
 
+```csharp
 Card[] p = JsonConvert.DeserializeObject<Card[]>(r.ContentString);
-
+```
 alle Karten Informationen in ein Card-Array abspeichern.
 
 Installierte NuGet Packete in Visual Studio
