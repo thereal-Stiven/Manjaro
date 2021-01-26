@@ -3,7 +3,7 @@
 ## Table of contents
 * [Intro](#intro)
 * [Datenbank](#datenbank)
-* [Exe](#.exe)
+* [Exe](#exe)
 * [Use](#Use)
 * [Create-User](#user-erstellen) 
 * [Login-User](#user-login)
