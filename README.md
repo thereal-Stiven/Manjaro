@@ -5,6 +5,7 @@
 * [Datenbank](#datenbank)
 * [Exe](#.exe)
 * [Use](#Use)
+* [SQL-Skript](#sql-skript)
 
 ## Intro
 
@@ -158,4 +159,96 @@ curl -X POST http://localhost:10001/packages --header "Content-Type: application
 ### acquire packages
 ```
 curl -X POST http://localhost:10001/transactions/packages --header "Content-Type: application/json" --header "Authorization: Basic NAME_DES_USERS-mtcgToken" -d ""
+```
+
+## SQL-Skript
+```sql
+--TABLLEN LÖSCHEN
+drop table usercredits;
+drop table users CASCADE;
+drop table cards CASCADE;
+drop table loggedIn;
+drop table owns;
+drop table userprofiles;
+
+------------------------------------------------------------------------
+--TABLLEN ERSTELLEN
+create table cards (
+	ID VARCHAR(100) primary key,
+	Name VARCHAR(100),
+	Damage integer,
+	packageID integer
+);
+
+create table users(
+	username VARCHAR(100) primary key,
+	userpwd VARCHAR(100)
+);
+
+create table userCredits(
+	username VARCHAR(100) REFERENCES users,
+	usercredit integer DEFAULT 20,
+	primary key (username)
+);
+
+create table loggedIn(
+	username VARCHAR(100) REFERENCES users,
+	usertoken VARCHAR(110) unique,
+	primary key(username)
+);
+
+create table owns(
+	username VARCHAR(100) REFERENCES users,
+	cID VARCHAR(100) REFERENCES cards
+);
+
+create table userprofiles(
+	username VARCHAR(100) REFERENCES users primary key,
+	Bio VARCHAR(300),
+	Image VARCHAR(100)
+);
+
+------------------------------------------------------------------------
+--INHALT DER TABLLEN 
+select * from users;
+select * from loggedIn;
+select * from cards;
+select * from owns;
+select * from usercredits;
+select * from userprofiles;
+------------------------------------------------------------------------
+--TESTEN VON QUERIES
+
+SELECT MAX(packageID) FROM cards;
+Update cards SET packageID='1';
+
+SELECT count(*) FROM loggedIn WHERE usertoken='kienboec-mtcgToken';
+
+SELECT count(*) FROM loggedIn WHERE usertoken = 'kienboec-mtcgToken';
+
+SELECT * FROM cards WHERE packageid=2;
+
+SELECT MAX(packageID) FROM cards;
+
+UPDATE usercredits
+SET usercredit = 20
+WHERE username ='kienboec';
+
+select * from usercredits;
+
+SELECT id FROM cards WHERE packageid='2';
+
+SELECT usercredit from usercredits WHERE username='kienboec';
+SELECT count(*) FROM loggedIn WHERE usertoken = '" + token + "';
+
+--EINFUEGEN VON TESTWERTEN
+INSERT INTO cards VALUES('001','blauaeugiger Drache',3000,1);
+INSERT INTO cards VALUES('002','Weisser Drach',3000,1);
+
+INSERT INTO cards VALUES('003','exodia',9999,2);
+INSERT INTO cards VALUES('004','WDrach4',4000,2);
+
+INSERT INTO cards VALUES('005','WDrac5h',5000,3);
+INSERT INTO cards VALUES('006','WDrach6',5000,3);
+--
 ```
