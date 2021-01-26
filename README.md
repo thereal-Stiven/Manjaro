@@ -4,7 +4,7 @@
 * [Intro](#intro)
 * [Datenbank](#datenbank)
 * [Exe](#.exe)
-* [Commands](#.commands)
+* [Use](#Use)
 
 ## Intro
 
@@ -142,7 +142,7 @@ Die exe habe ich direkt in Visual Studio erstellt (GUI nicht Developer Console)
 ========== Build: 0 succeeded, 0 failed, 1 up-to-date, 0 skipped ==========
 ========== Publish: 1 succeeded, 0 failed, 0 skipped ==========
 
-## Commands
+## Use
 ### User erstellen
 ```curl
 curl -X POST http://localhost:10001/users --header "Content-Type: application/json" -d "{\"Username\":\"NAME_DES_USERS\", \"Password\":\"PASSWORT_DES_USERS\"}"
