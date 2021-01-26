@@ -5,6 +5,8 @@
 * [Datenbank](#datenbank)
 * [Exe](#.exe)
 * [Use](#Use)
+* [Create-User](###user-erstellen) 
+* [Login-User](###user-login)
 * [SQL-Skript](#sql-skript)
 
 ## Intro
@@ -144,7 +146,7 @@ Die exe habe ich direkt in Visual Studio erstellt (GUI nicht Developer Console)
 ========== Publish: 1 succeeded, 0 failed, 0 skipped ==========
 ```
 ## Use
-### User erstellen
+### User erstellen 
 ```
 curl -X POST http://localhost:10001/users --header "Content-Type: application/json" -d "{\"Username\":\"NAME_DES_USERS\", \"Password\":\"PASSWORT_DES_USERS\"}"
 ```
@@ -160,6 +162,23 @@ curl -X POST http://localhost:10001/packages --header "Content-Type: application
 ```
 curl -X POST http://localhost:10001/transactions/packages --header "Content-Type: application/json" --header "Authorization: Basic NAME_DES_USERS-mtcgToken" -d ""
 ```
+
+### add new packages
+```
+curl -X POST http://localhost:10001/transactions/packages --header "Content-Type: application/json" --header "Authorization: Basic USERNAME-mtcgToken" -d ""
+
+```
+
+### show all acquiered cards
+```
+curl -X GET http://localhost:10001/cards --header "Authorization: Basic USERNAME-mtcgToken"
+
+```
+
+
+
+
+
 
 ## SQL-Skript
 ```sql
@@ -199,7 +218,8 @@ create table loggedIn(
 
 create table owns(
 	username VARCHAR(100) REFERENCES users,
-	cID VARCHAR(100) REFERENCES cards
+	cID VARCHAR(100) REFERENCES cards,
+	inDeck BOOL DEFAULT 'n'
 );
 
 create table userprofiles(
@@ -213,11 +233,14 @@ create table userprofiles(
 select * from users;
 select * from loggedIn;
 select * from cards;
-select * from owns;
+select * from owns; --boolean is in deck (4)
 select * from usercredits;
 select * from userprofiles;
 ------------------------------------------------------------------------
 --TESTEN VON QUERIES
+
+insert into userCredits(username) values('natalie');
+
 
 SELECT MAX(packageID) FROM cards;
 Update cards SET packageID='1';
@@ -240,7 +263,7 @@ SELECT id FROM cards WHERE packageid='2';
 
 SELECT usercredit from usercredits WHERE username='kienboec';
 SELECT count(*) FROM loggedIn WHERE usertoken = '" + token + "';
-------------------------------------------------------------------------
+
 --EINFUEGEN VON TESTWERTEN
 INSERT INTO cards VALUES('001','blauaeugiger Drache',3000,1);
 INSERT INTO cards VALUES('002','Weisser Drach',3000,1);
@@ -250,5 +273,11 @@ INSERT INTO cards VALUES('004','WDrach4',4000,2);
 
 INSERT INTO cards VALUES('005','WDrac5h',5000,3);
 INSERT INTO cards VALUES('006','WDrach6',5000,3);
+
+INSERT INTO users (username,userpwd) VALUES ('a','b')
+
+select *  from  owns where username='altenhof';
+select * from owns WHERE indeck ='0';
+
 ------------------------------------------------------------------------
 ```
