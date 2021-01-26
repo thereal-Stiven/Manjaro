@@ -11,7 +11,7 @@
 * [Acquire-Package](#acquire-package)
 * [Add-Package](#add-package)
 * [Show-acquired-cards](#show-acquired-cards)
-* [Show-User-Profile](#show-user-profile)
+* [Show-user-profile](#show-user-profile)
 * [SQL-Skript](#sql-skript)
 
 ## Intro
