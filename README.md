@@ -9,14 +9,14 @@
 ## Intro
 
 Da ich Quereinsteiger bin war ich nicht sicher wie der Aufbau der Solution sein soll da ich noch aus der HTL
-weiss, dass einige darauf schauen die Logik in eigene Projektmappen zu geben etc., da dies mein erstes Programm 
-seit langem war entschloss ich einfachkeitshalber alles in einer Projektmappe zu machen.
+weiß, dass einige darauf schauen die Logik in eigene Projektmappen zu geben etc., da dies mein erstes Programm seit langem war,
+entschloss ich einfachheitshalber alles in einer Projektmappe zu machen.
 
 ## Datenbank
 
-Die Datenbank ist eine PostgreSQL Datenbank, hierbei habe ich mich nach oftmaligem neuinstallieren und Fehlschlaegen
-entschlossen die Portable Version zu verwenden, da diese mit pgAdmin4 ausfuehrbar war.
-Das Skript zum erstellen der Tabellen in der Datenbank befindet sich im ProjektOrdner
+Die Datenbank ist eine PostgreSQL Datenbank, hierbei habe ich mich nach oftmaligem Neuinstallieren und Fehlschlägen
+entschlossen die Portable Version zu verwenden, da diese mit pgAdmin4 ausführbar war.
+Das Skript zum Erstellen der Tabellen in der Datenbank befindet sich im Projektordner
 unter: exercise-StivenSt\dotnet\swe1\MyServer\SQLskript
 
 ```sql
@@ -76,18 +76,16 @@ create table userprofiles(
 	Image VARCHAR(100)
 );
 ```
+Die Tabelle userprofiles wurde hinzugefügt um das editieren der User Data im Nachhinein zu implementieren,
+dies wollte ich allerdings nicht in der Tabelle Users direkt machen.
 
-Die Tabelle userprofiles wurde hinzugefuegt um das editieren der User Data im nachinein zu implementieren,
-dies wollte ich allerdings nicht in der Tabelle users direkt machen.
-
-Wie bereits erwaehnt hatte ich am Anfang Probleme beim installieren von PostgreSQL, welches einige Zeit
-in anspruch nahm, auch beim Deserializieren der Karten hatte ich Probleme bis ich nach kurzem recherchieren
-auf "Newtonsoft.Json" gestossen bin. Damit konnte ich einfach  
+Wie bereits erwähnt hatte ich am Anfang Probleme beim Installieren von PostgreSQL, welches einige Zeit
+in Anspruch nahm, auch beim deserializieren der Karten hatte ich Probleme bis ich nach kurzem recherchieren
+auf "Newtonsoft.Json" gestossen bin. Damit konnte ich einfach alle Karten Informationen in ein Card-Array abspeichern.
 
 ```csharp
 Card[] p = JsonConvert.DeserializeObject<Card[]>(r.ContentString);
 ```
-alle Karten Informationen in ein Card-Array abspeichern.
 
 Installierte NuGet Packete in Visual Studio
 -Npgsql 
