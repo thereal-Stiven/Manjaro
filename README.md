@@ -174,7 +174,7 @@ curl -X POST http://localhost:10001/transactions/packages --header "Content-Type
 
 ```
 
-### show acquiered cards
+### show acquired cards
 ```
 curl -X GET http://localhost:10001/cards --header "Authorization: Basic USERNAME-mtcgToken"
 
