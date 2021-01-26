@@ -7,6 +7,11 @@
 * [Use](#Use)
 * [Create-User](#user-erstellen) 
 * [Login-User](#user-login)
+* [Create-Package](#create-package)
+* [Acquire-Package](#acquire-package)
+* [Add-Package](#add-package)
+* [Show-acquired-Packages](#show-acquired-package)
+* [Show-User-Profile](#show-user-profile)
 * [SQL-Skript](#sql-skript)
 
 ## Intro
@@ -175,9 +180,10 @@ curl -X GET http://localhost:10001/cards --header "Authorization: Basic USERNAME
 
 ```
 
-
-
-
+### show user profile
+```
+curl -X GET http://localhost:10001/users/kienboec --header "Authorization: Basic USERNAME-mtcgToken"
+```
 
 
 ## SQL-Skript
