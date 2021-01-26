@@ -8,8 +8,8 @@
 
 ## Intro
 
-Da ich Quereinsteiger bin war ich nicht sicher wie der Aufbau der Solution sein soll da ich noch aus der HTL
-weiß, dass einige darauf schauen die Logik in eigene Projektmappen zu geben etc., da dies mein erstes Programm seit langem war,
+Da ich Quereinsteiger bin, war ich mir nicht sicher wie der Aufbau der Solution sein und ob es Vorgaben aus den letzten Semestern gab. In der HTL
+bestanden einige Professoren darauf, dass die Logik in eigene Projektmappen zu geben etc., da dies mein erstes Programm seit langem war,
 entschloss ich einfachheitshalber alles in einer Projektmappe zu machen.
 
 ## Datenbank
