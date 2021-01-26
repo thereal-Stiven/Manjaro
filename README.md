@@ -240,7 +240,7 @@ SELECT id FROM cards WHERE packageid='2';
 
 SELECT usercredit from usercredits WHERE username='kienboec';
 SELECT count(*) FROM loggedIn WHERE usertoken = '" + token + "';
-
+------------------------------------------------------------------------
 --EINFUEGEN VON TESTWERTEN
 INSERT INTO cards VALUES('001','blauaeugiger Drache',3000,1);
 INSERT INTO cards VALUES('002','Weisser Drach',3000,1);
@@ -250,5 +250,5 @@ INSERT INTO cards VALUES('004','WDrach4',4000,2);
 
 INSERT INTO cards VALUES('005','WDrac5h',5000,3);
 INSERT INTO cards VALUES('006','WDrach6',5000,3);
---
+------------------------------------------------------------------------
 ```
