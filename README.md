@@ -10,7 +10,7 @@
 * [Create-Package](#create-package)
 * [Acquire-Package](#acquire-package)
 * [Add-Package](#add-package)
-* [Show-acquired-Packages](#show-acquired-package)
+* [Show-acquired-cards](#show-acquired-cards)
 * [Show-User-Profile](#show-user-profile)
 * [SQL-Skript](#sql-skript)
 
@@ -168,13 +168,13 @@ curl -X POST http://localhost:10001/packages --header "Content-Type: application
 curl -X POST http://localhost:10001/transactions/packages --header "Content-Type: application/json" --header "Authorization: Basic NAME_DES_USERS-mtcgToken" -d ""
 ```
 
-### add new packages
+### add package
 ```
 curl -X POST http://localhost:10001/transactions/packages --header "Content-Type: application/json" --header "Authorization: Basic USERNAME-mtcgToken" -d ""
 
 ```
 
-### show all acquiered cards
+### show acquiered cards
 ```
 curl -X GET http://localhost:10001/cards --header "Authorization: Basic USERNAME-mtcgToken"
 
