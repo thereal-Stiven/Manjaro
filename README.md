@@ -136,25 +136,27 @@ Die exe habe ich direkt in Visual Studio erstellt (GUI nicht Developer Console)
 6) Publish
 
 ### Visual Studio output
+```
 1>------ Publish started: Project: MyServer, Configuration: Release Any CPU ------
 1>MyServer -> C:\Users\Administrator\Documents\GitHub\exercise-StivenSt\dotnet\swe1\MyServer\bin\Release\netcoreapp3.1\MyServer.dll
 1>MyServer -> C:\Users\Administrator\Documents\GitHub\exercise-StivenSt\dotnet\swe1\MyServer\bin\Release\netcoreapp3.1\publish\
 ========== Build: 0 succeeded, 0 failed, 1 up-to-date, 0 skipped ==========
 ========== Publish: 1 succeeded, 0 failed, 0 skipped ==========
-
+```
 ## Use
 ### User erstellen
-```curl
+```
 curl -X POST http://localhost:10001/users --header "Content-Type: application/json" -d "{\"Username\":\"NAME_DES_USERS\", \"Password\":\"PASSWORT_DES_USERS\"}"
 ```
 ### User login
-
+```
 curl -X POST http://localhost:10001/sessions --header "Content-Type: application/json" -d "{\"Username\":\"NAME_DES_USERS\", \"Password\":\"PASSWORT_DES_USERS\"}"
-
+```
 ### create Package (only admin, Packs can only be created with 5 cards)
-
+```
 curl -X POST http://localhost:10001/packages --header "Content-Type: application/json" --header "Authorization: Basic NAME_DES_ADMINS-mtcgToken" -d "[{\"Id\":\"845f0dc7-37d0-426e-994e-43fc3ac83c08\", \"Name\":\"WaterGoblin\", \"Damage\": 10.0}, {\"Id\":\"99f8f8dc-e25e-4a95-aa2c-782823f36e2a\", \"Name\":\"Dragon\", \"Damage\": 50.0}, {\"Id\":\"e85e3976-7c86-4d06-9a80-641c2019a79f\", \"Name\":\"WaterSpell\", \"Damage\": 20.0}, {\"Id\":\"1cb6ab86-bdb2-47e5-b6e4-68c5ab389334\", \"Name\":\"Ork\", \"Damage\": 45.0}, {\"Id\":\"dfdd758f-649c-40f9-ba3a-8657f4b3439f\", \"Name\":\"FireSpell\",    \"Damage\": 25.0}]"
-
+```
 ### acquire packages
+```
 curl -X POST http://localhost:10001/transactions/packages --header "Content-Type: application/json" --header "Authorization: Basic NAME_DES_USERS-mtcgToken" -d ""
-
+```
